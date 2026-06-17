@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import in.tech_camp.qanda_app.entity.QuestionEntity;
 import in.tech_camp.qanda_app.form.QuestionForm;
@@ -30,4 +32,22 @@ public class QuestionController {
     return "/users/new";
   }
   
+  @PostMapping("/users/new")
+  public String createQuestion(@ModelAttribute("questionForm") QuestionForm questionForm,Model model){
+
+    QuestionEntity questionEntity =new QuestionEntity();
+    questionEntity.setTitle(questionForm.getTitle());
+    questionEntity.setContent(questionForm.getContent());
+    questionEntity.setUser_id(2);//ユーザー登録したら変える
+
+    try{
+      questionRepository.insert(questionEntity);
+    }catch(Exception e){
+      System.out.println("エラー："+e);
+      model.addAttribute("questionForm",questionForm);
+      return "users/new";
+    }
+    
+    return "redirect:/";
+  }
 }

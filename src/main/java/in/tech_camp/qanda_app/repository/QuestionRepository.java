@@ -15,7 +15,7 @@ public interface QuestionRepository {
 @Select("SELECT * FROM questions")
   List<QuestionEntity> findAll();
 
-@Insert("INSERT INTO question (title,content) VALUES(#{title},#{content})")
+@Insert("INSERT INTO questions (title,content,user_id) VALUES(#{title},#{content},#{user_id})")
 @Options(useGeneratedKeys=true,keyProperty="id")
 void insert(QuestionEntity question);
 

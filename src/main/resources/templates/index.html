@@ -23,7 +23,9 @@
     <!-- メインコンテンツエリア（ループ処理を想定した構造） -->
     <div class="contents" id="contents_area">
         <div th:each="question : ${questions}">
-            <div class="question-title" th:text="${question.title}">質問タイトル</div>
+            <div class="question-title">
+                <a href="#" th:text="${question.title}">質問タイトル</a>
+            </div>
             <div class="question-text" th:text="${question.content}">詳細</div>
         </div>
     </div>
