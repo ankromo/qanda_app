@@ -69,21 +69,20 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* メインコンテンツエリア（中央配置・スクロール） */
+/* メインコンテンツエリア（中央配置・ヘッダー分の余白確保） */
 .contents {
     min-width: 300px;
     width: 80%;
     background-color: #fff;
     margin-top: 70px;
-    margin-left: 10px; /* 元のコードの崩れを防ぐためマージンを調整 */
     margin-right: auto;
     margin-left: auto;
     text-align: center;
     padding-top: 10px;
 }
 
-/* 各質問記事カード（画像通りの2段構造を美しく再現） */
-.contents .article {
+/* 現在のHTMLのループ用div（th:eachが書かれている塊）を外枠カード化 */
+.contents > div {
     width: 60%;
     display: inline-block;
     padding: 20px;
@@ -94,32 +93,34 @@ body {
     color: #444;
 }
 
-/* 記事の上段（タイトルエリア） */
-.article-title-area {
-    margin-bottom: 10px;
+/* 最後の質問カードの下部余白 */
+.contents > div:last-child {
+    margin-bottom: 30px;
 }
 
-.contents .article .article-title {
+/* 上段：質問タイトルエリア（リンクとして機能するように装飾） */
+.question-title {
+    margin-bottom: 10px;
     font-size: 18px;
     font-weight: bold;
     color: #00306e;
-    text-decoration: none;
+    cursor: pointer;
+    display: inline-block; /* ホバー領域を文字幅に合わせる */
 }
 
-.contents .article .article-title:hover {
+/* タイトルにホバーしたときのモダンなエフェクト（最初の指示：クリックしたら画面遷移） */
+.question-title:hover {
     text-decoration: underline;
+    color: #0056b3;
 }
 
-/* 記事の下段（詳細テキスト領域） */
-.article-detail {
+/* 下段：詳細テキスト領域（ご提示いただいたスタイルを維持して最適化） */
+.question-text {
     border: 1px solid #ccc;
     padding: 15px;
     background-color: #fcfcfc;
     border-radius: 4px;
     font-size: 14px;
-}
-
-/* 最後の要素の下部余白 */
-.contents .article:last-child {
-    margin-bottom: 30px;
+    line-height: 1.6;
+    cursor: default; /* 本文は通常のカーソルに */
 }
