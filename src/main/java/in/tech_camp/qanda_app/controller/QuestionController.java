@@ -21,5 +21,11 @@ public class QuestionController {
     model.addAttribute("questions",questions);
     return "index";
   }
+
+  @GetMapping("/users/new")
+  public String showNewQuestion(){
+
+    return "/users/new";
+  }
   
 }

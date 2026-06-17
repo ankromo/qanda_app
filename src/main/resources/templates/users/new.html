@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新規質問投稿</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <!-- 共通ヘッダー -->
+    <header class="header">
+        <div class="header-logo">Q&A Forum</div>
+        <div class="header-nav">
+            <a href="#" class="nav-btn btn-secondary">トップへ戻る</a>
+        </div>
+    </header>
+
+    <!-- フォーム専用のメインコンテンツエリア -->
+    <div class="contents-form" id="contents_area">
+        
+        <!-- 投稿フォームの外枠 -->
+        <div class="form-container">
+            <h2 class="form-page-title">新規質問を投稿する</h2>
+
+            <form action="#" method="post" id="new_question">
+                
+                <!-- タイトル入力欄 -->
+                <div class="form-group">
+                    <label for="question_title" class="form-label">質問タイトル</label>
+                    <input type="text" id="question_title" name="title" value="" class="form-control" placeholder="例: JavaScriptの非同期処理について" required autocomplete="off"/>
+                </div>
+
+                <!-- 本文入力欄 -->
+                <div class="form-group">
+                    <label for="question_content" class="form-label">質問内容（詳細）</label>
+                    <textarea id="question_content" name="content" class="form-control text-area" rows="8" placeholder="困っていることや、具体的なエラーコードを記述してください" required></textarea>
+                </div>
+
+                <!-- ボタンエリア -->
+                <div class="form-submit-area">
+                    <input type="submit" value="POST" id="submit_btn" class="nav-btn btn-primary submit-btn"/>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>

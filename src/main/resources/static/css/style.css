@@ -14,7 +14,7 @@ body {
     color: #444;
 }
 
-/* ヘッダーのレイアウト調整 */
+/* ヘッダーのレイアウト調整（位置を最前面に固定） */
 .header {
     height: 70px;
     width: 100%;
@@ -26,7 +26,7 @@ body {
     justify-content: space-between; /* 左右に分散配置 */
     align-items: center;
     padding: 0 10%;
-    z-index: 1000;
+    z-index: 9999; /* 他の要素に埋もれないよう最前面に指定 */
 }
 
 .header-logo {
@@ -48,6 +48,7 @@ body {
     border-radius: 4px;
     font-weight: bold;
     transition: background-color 0.2s;
+    display: inline-block;
 }
 
 .btn-primary {
@@ -69,28 +70,28 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* ==========================================
+   トップページ（一覧）用のスタイル
+   ========================================== */
+
 /* メインコンテンツエリア（中央配置・ヘッダー分の余白確保） */
 .contents {
     min-width: 300px;
     width: 80%;
-    background-color: #fff;
-    margin-top: 70px;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 100px auto 30px auto; /* 上部に100pxの余白を空けて固定ヘッダーと被るのを防止 */
     text-align: center;
-    padding-top: 10px;
 }
 
-/* 現在のHTMLのループ用div（th:eachが書かれている塊）を外枠カード化 */
+/* 【ここを修正】質問を1件ずつ囲う外枠カード（th:eachが書かれている塊） */
 .contents > div {
     width: 60%;
     display: inline-block;
     padding: 20px;
     margin-top: 30px;
-    border: 1px solid #666;
+    border: 1px solid #666; /* ★囲み線を復活させました */
     text-align: left;
     border-radius: 5px;
-    color: #444;
+    background-color: #fff;
 }
 
 /* 最後の質問カードの下部余白 */
@@ -98,23 +99,22 @@ body {
     margin-bottom: 30px;
 }
 
-/* 上段：質問タイトルエリア（リンクとして機能するように装飾） */
+/* 上段：質問タイトルエリア */
 .question-title {
     margin-bottom: 10px;
     font-size: 18px;
     font-weight: bold;
     color: #00306e;
     cursor: pointer;
-    display: inline-block; /* ホバー領域を文字幅に合わせる */
+    display: inline-block;
 }
 
-/* タイトルにホバーしたときのモダンなエフェクト（最初の指示：クリックしたら画面遷移） */
 .question-title:hover {
     text-decoration: underline;
     color: #0056b3;
 }
 
-/* 下段：詳細テキスト領域（ご提示いただいたスタイルを維持して最適化） */
+/* 下段：詳細テキスト領域（質問内容） */
 .question-text {
     border: 1px solid #ccc;
     padding: 15px;
@@ -122,5 +122,90 @@ body {
     border-radius: 4px;
     font-size: 14px;
     line-height: 1.6;
-    cursor: default; /* 本文は通常のカーソルに */
+}
+
+/* ==========================================
+   新規投稿フォーム画面用のスタイル
+   ========================================== */
+
+/* フォーム専用のメインエリア（余白を確保） */
+.contents-form {
+    min-width: 300px;
+    width: 80%;
+    margin: 100px auto 30px auto;
+    text-align: center;
+}
+
+/* フォームの外枠 */
+.form-container {
+    width: 60%;
+    display: inline-block;
+    padding: 30px;
+    border: 1px solid #666;
+    text-align: left;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+/* 画面内の見出し */
+.form-page-title {
+    font-size: 20px;
+    color: #00306e;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #00306e;
+    padding-bottom: 8px;
+}
+
+/* 各入力項ementsの縦並び調整 */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* ラベルの装飾 */
+.form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+/* 入力フォーム（input, textarea）のモダンな装飾 */
+.form-control {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fcfcfc;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+/* 入力欄にフォーカスしたときの色変化 */
+.form-control:focus {
+    border-color: #00306e;
+    background-color: #fff;
+}
+
+/* テキストエリア専用の高さ制限調整 */
+.text-area {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* 送信ボタンの配置調整 */
+.form-submit-area {
+    text-align: right;
+    margin-top: 24px;
+}
+
+/* ボタンサイズをフォーム幅に合わせた最適化 */
+.submit-btn {
+    border: none;
+    padding: 10px 32px;
+    font-size: 16px;
+    cursor: pointer;
 }
