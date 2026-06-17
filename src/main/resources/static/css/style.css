@@ -1,0 +1,125 @@
+/* 全体構造のリセットと基本設定 */
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fafafa;
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    color: #444;
+}
+
+/* ヘッダーのレイアウト調整 */
+.header {
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #00306e;
+    display: flex;
+    justify-content: space-between; /* 左右に分散配置 */
+    align-items: center;
+    padding: 0 10%;
+    z-index: 1000;
+}
+
+.header-logo {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* ヘッダーナビゲーションとボタン */
+.header-nav {
+    display: flex;
+    gap: 12px;
+}
+
+.nav-btn {
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.btn-primary {
+    background-color: #ff922b;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #f76707;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* メインコンテンツエリア（中央配置・スクロール） */
+.contents {
+    min-width: 300px;
+    width: 80%;
+    background-color: #fff;
+    margin-top: 70px;
+    margin-left: 10px; /* 元のコードの崩れを防ぐためマージンを調整 */
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    padding-top: 10px;
+}
+
+/* 各質問記事カード（画像通りの2段構造を美しく再現） */
+.contents .article {
+    width: 60%;
+    display: inline-block;
+    padding: 20px;
+    margin-top: 30px;
+    border: 1px solid #666;
+    text-align: left;
+    border-radius: 5px;
+    color: #444;
+}
+
+/* 記事の上段（タイトルエリア） */
+.article-title-area {
+    margin-bottom: 10px;
+}
+
+.contents .article .article-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #00306e;
+    text-decoration: none;
+}
+
+.contents .article .article-title:hover {
+    text-decoration: underline;
+}
+
+/* 記事の下段（詳細テキスト領域） */
+.article-detail {
+    border: 1px solid #ccc;
+    padding: 15px;
+    background-color: #fcfcfc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* 最後の要素の下部余白 */
+.contents .article:last-child {
+    margin-bottom: 30px;
+}
