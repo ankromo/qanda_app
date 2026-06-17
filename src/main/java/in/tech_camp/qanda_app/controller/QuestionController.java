@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import in.tech_camp.qanda_app.entity.QuestionEntity;
+import in.tech_camp.qanda_app.form.QuestionForm;
 import in.tech_camp.qanda_app.repository.QuestionRepository;
 import lombok.AllArgsConstructor;
 
@@ -23,7 +24,8 @@ public class QuestionController {
   }
 
   @GetMapping("/users/new")
-  public String showNewQuestion(){
+  public String showNewQuestion(Model model){
+    model.addAttribute("questionForm",new QuestionForm());
 
     return "/users/new";
   }
