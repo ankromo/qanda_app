@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>質問投稿サイト</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -14,19 +14,20 @@
     <header class="header">
         <div class="header-logo">Q&A Form</div>
         <div class="header-nav">
-            <a th:href="@{/users/new}" class="nav-btn btn-primary">新規投稿</a>
+            <a th:href="@{question/new}" class="nav-btn btn-primary">新規投稿</a>
             <a href="#" class="nav-btn btn-secondary">my page</a>
         </div>
-        </div>
+        
     </header>
 
     <!-- メインコンテンツエリア（ループ処理を想定した構造） -->
     <div class="contents" id="contents_area">
-        <div th:each="question : ${questions}">
+        <div th:each="question : ${questions}" class="question-card">
             <div class="question-title">
                 <a href="#" th:text="${question.title}">質問タイトル</a>
             </div>
             <div class="question-text" th:text="${question.content}">詳細</div>
+            <div class="question-date" th:text="${question.created_at}">日付</div>
         </div>
     </div>
 </body>

@@ -22,14 +22,14 @@ public class QuestionController {
   public String showIndex(Model model){
     List<QuestionEntity> questions = questionRepository.findAll();
     model.addAttribute("questions",questions);
-    return "index";
+    return "questions/index";
   }
 
-  @GetMapping("/users/new")
+  @GetMapping("question/new")
   public String showNewQuestion(Model model){
     model.addAttribute("questionForm",new QuestionForm());
 
-    return "/users/new";
+    return "questions/new";
   }
   
   @PostMapping("/users/new")
@@ -45,9 +45,9 @@ public class QuestionController {
     }catch(Exception e){
       System.out.println("エラー："+e);
       model.addAttribute("questionForm",questionForm);
-      return "users/new";
+      return "questions/new";
     }
     
-    return "redirect:/";
+    return "redirect:questions/index";
   }
 }

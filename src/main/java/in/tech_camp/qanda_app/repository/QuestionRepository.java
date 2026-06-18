@@ -12,7 +12,7 @@ import in.tech_camp.qanda_app.entity.QuestionEntity;
 @Mapper
 public interface QuestionRepository {
   
-@Select("SELECT * FROM questions")
+@Select("SELECT * FROM questions ORDER BY created_at DESC")
   List<QuestionEntity> findAll();
 
 @Insert("INSERT INTO questions (title,content,user_id) VALUES(#{title},#{content},#{user_id})")

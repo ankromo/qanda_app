@@ -1,6 +1,7 @@
 package in.tech_camp.qanda_app.entity;
 
-import java.security.Timestamp;
+
+import java.sql.Timestamp;
 
 import lombok.Data;
 
