@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS questions(
+  id    SERIAL  NOT NULL,
+  title   VARCHAR(255)  NOT NULL,
+  content   text  NOT NULL,
+  user_id   INT   NOT NULL,
+  created_at    TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY(id),
+  FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
+);
